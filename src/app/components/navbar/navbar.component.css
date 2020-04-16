@@ -1,0 +1,25 @@
+.nav-link:after {
+  content: "|";
+  position: absolute;
+  top: 16px;
+  margin-left: -10px;
+  color: #a0ce4f;
+  font-size: 1.3em;
+}
+
+.items {
+  color: #a0ce4f;
+  font-size: 1.3em;
+}
+
+.right-element {
+  right: 0;
+  /* left: 50%; */
+}
+
+.toggler-symbol {
+  width: 35px;
+  height: 4px;
+  background-color: #a0ce4f;
+  margin: 6px 0;
+}

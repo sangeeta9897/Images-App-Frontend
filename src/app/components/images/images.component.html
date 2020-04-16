@@ -1,0 +1,11 @@
+<app-navbar class="vw-100vh" [change]="true"></app-navbar>
+<div class="row">
+  <!-- <flash-messages></flash-messages> -->
+  <div *ngFor="let i of [0, 1, 2, 3]" class="column">
+    <img
+      *ngFor="let image of imagesArray[i]"
+      [src]="image.url"
+      style="width: 100%;"
+    />
+  </div>
+</div>

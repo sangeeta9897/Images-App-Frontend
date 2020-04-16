@@ -1,0 +1,16 @@
+.main-container {
+  background-image: url("../../../assets/free background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  background-size: cover;
+  height: 118vh;
+  /* width: 100wh; */
+}
+
+@media only screen and (max-width: 600px) {
+  .main-container {
+    height: 200vh;
+    width: 200wh;
+  }
+}

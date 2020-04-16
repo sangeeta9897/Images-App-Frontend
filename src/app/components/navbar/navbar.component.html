@@ -1,0 +1,35 @@
+<div class="float-right">
+  <nav class="navbar navbar-expand-lg navbar-dark items">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <div>
+        <div class="toggler-symbol"></div>
+        <div class="toggler-symbol"></div>
+        <div class="toggler-symbol"></div>
+      </div>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto mr-auto">
+        <li *ngIf="change == false" class="nav-item nav-link mr-md-2">
+          <div class="items" (click)="login()">Login</div>
+        </li>
+        <li *ngIf="change == false" class="nav-item nav-link mr-md-2">
+          <div class="items" (click)="register()">Register</div>
+        </li>
+        <li *ngIf="change == true" class="nav-item nav-link mr-md-2">
+          <div class="items" (click)="logout()">Logout</div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="w-75 ml-auto mr-auto">
+    <app-authentication [toggle]="toggle"></app-authentication>
+  </div>
+</div>

@@ -1,0 +1,143 @@
+<flash-messages></flash-messages>
+<div *ngIf="toggle != ''" class="rounded row d-flex main-container ml-auto">
+  <div class="col-md-4 col-sm-12 info-container pt-5 mr-auto ml-auto">
+    <div class="title">
+      {{ toggle | titlecase }}
+    </div>
+    <div class="pt-2">
+      Jai Kisan's platform is built to empower the growth of Rural Indians,
+      especially farmers.
+    </div>
+    <img class="footer-image" src="../../../assets/student.png" />
+  </div>
+
+  <div
+    class="col-md-8 col-sm-12 p-0"
+    [ngClass]="{
+      'auth-container': toggle == 'login',
+      'auth-container2': toggle == 'register'
+    }"
+  >
+    <div *ngIf="toggle === 'register'" class="auth-title mt-5 pl-5">
+      {{ toggle | titlecase }} as a Student
+    </div>
+    <div *ngIf="toggle === 'login'" class="auth-title mt-5 pl-5">
+      {{ toggle | titlecase }}
+    </div>
+    <form class="p-5">
+      <form>
+        <div *ngIf="toggle === 'register'" class="form-group">
+          <label for="name">User Name</label>
+          <input
+            id="name"
+            type="text"
+            class="form-control"
+            name="fname"
+            placeholder="Type here"
+            [(ngModel)]="registerLoginData.userName"
+            #fname="ngModel"
+            required
+          />
+        </div>
+
+        <div
+          class="alert alert-danger"
+          *ngIf="toggle == 'register' && registerLoginData.userName.length == 0"
+        >
+          username is required.
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            placeholder="Type here"
+            [(ngModel)]="loginData.emailID"
+            [(ngModel)]="registerLoginData.emailID"
+            #email="ngModel"
+            required
+            email
+          />
+        </div>
+        <div
+          *ngIf="email.invalid && (email.dirty || email.touched)"
+          class="alert alert-danger"
+        >
+          <div *ngIf="email.errors.required">
+            Email is required.
+          </div>
+          <div *ngIf="email.errors.email">
+            Email should be correct.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            minlength="6"
+            type="password"
+            class="form-control"
+            name="password"
+            placeholder="********"
+            [(ngModel)]="loginData.password"
+            [(ngModel)]="registerLoginData.password"
+            #password="ngModel"
+            required
+          />
+        </div>
+        <div
+          *ngIf="
+            toggle == 'register' &&
+            password.invalid &&
+            (password.dirty || password.touched)
+          "
+          class="alert alert-danger"
+        >
+          <div *ngIf="password.errors.required">
+            password is required.
+          </div>
+          <div *ngIf="password.errors.minlength">
+            password length should be at least 6.
+          </div>
+        </div>
+        <div *ngIf="toggle === 'register'" class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="confirmPassword"
+            placeholder="********"
+            [(ngModel)]="confirmPassword"
+            required
+          />
+        </div>
+        <div
+          *ngIf="
+            toggle === 'register' &&
+            registerLoginData.password != '' &&
+            confirmPassword != registerLoginData.password
+          "
+          class="alert alert-danger"
+        >
+          Password doest not match.
+        </div>
+        <button
+          (click)="onSubmit()"
+          *ngIf="toggle === 'register'"
+          type="button"
+          class="btn button-color btn-lg"
+        >
+          Create Account
+        </button>
+        <button
+          (click)="onSubmit()"
+          *ngIf="toggle === 'login'"
+          type="button"
+          class="btn button-color btn-lg"
+        >
+          {{ toggle | uppercase }}
+        </button>
+      </form>
+    </form>
+  </div>
+</div>
