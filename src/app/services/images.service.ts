@@ -10,8 +10,6 @@ export class ImagesService {
   constructor(private http: HttpClient) {}
 
   getImages() {
-    var token = localStorage.getItem("token");
-    console.log(token);
     return this.http.get<any>(this.baseUrl + "/getImages");
   }
 }

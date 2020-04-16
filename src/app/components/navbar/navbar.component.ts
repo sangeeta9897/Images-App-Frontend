@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./navbar.component.css"],
 })
 export class NavbarComponent implements OnInit {
-  toggle: string = "login";
+  toggle: string = "register";
   @Input() change: boolean = false;
   constructor(private router: Router) {}
   ngOnInit(): void {

@@ -24,18 +24,15 @@ export class ImagesComponent implements OnInit {
   getImages() {
     this.imageService.getImages().subscribe(
       (data) => {
-        for (let i = 0; i < data.outputObj.length; i++) {
-          let k = data.outputObj.length / 4;
-          console.log(data.outputObj.length);
-          while (k-- && i < data.outputObj.length) {
-            this.images.push(data.outputObj[i++]);
+        for (let index = 0; index < data.outputObj.length; index++) {
+          let dataLength = data.outputObj.length / 4;
+          while (dataLength-- && index < data.outputObj.length) {
+            this.images.push(data.outputObj[index++]);
           }
-          i--;
+          index--;
           this.imagesArray.push(this.images);
           this.images = [];
         }
-
-        console.log(this.imagesArray);
       },
       (error) => {
         localStorage.clear();

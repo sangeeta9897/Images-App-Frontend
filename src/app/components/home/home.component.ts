@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router) {}
   ngOnInit(): void {
     if (localStorage.getItem("token")) {
-      console.log(localStorage.getItem("token"));
       this.router.navigate(["/images"]);
     }
   }
